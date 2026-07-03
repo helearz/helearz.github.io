@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grand Prix d'Héléna | 20 Years Edition</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Orbitron',sans-serif;
+}
+
+body{
+
+background:linear-gradient(-45deg,#000,#111,#1f1f1f,#5a0000);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+color:white;
+text-align:center;
+padding:30px;
+
+}
+
+@keyframes bg{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
+}
+
+.card{
+
+max-width:700px;
+margin:auto;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.15);
+border-radius:25px;
+padding:35px;
+box-shadow:0 0 30px rgba(255,0,0,.3);
+
+}
+
+h1{
+
+font-size:42px;
+margin-bottom:10px;
+
+}
+
+.subtitle{
+
+color:#d9d9d9;
+margin-bottom:30px;
+
+}
+
+.section{
+
+margin-top:35px;
+
+}
+
+.section h2{
+
+color:#ff3b3b;
+margin-bottom:15px;
+
+}
+
+.event{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.05);
+padding:15px 20px;
+border-radius:15px;
+margin-bottom:12px;
+
+}
+
+.time{
+
+font-weight:bold;
+color:#FFD700;
+
+}
+
+button{
+
+margin-top:15px;
+padding:16px 30px;
+border:none;
+border-radius:50px;
+background:#e10600;
+color:white;
+font-size:17px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.05);
+
+}
+
+.footer{
+
+margin-top:40px;
+font-size:14px;
+color:#bdbdbd;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🏁 GRAND PRIX D'HÉLÉNA</h1>
+
+<p class="subtitle">
+20 YEARS EDITION • PADDOCK VIP
+</p>
+
+<div class="section">
+
+<h2>📅 PROGRAMME OFFICIEL</h2>
+
+<div class="event">
+<span class="time">12h00</span>
+<span>🏎️ Essais libres — Arrivée des pilotes</span>
+</div>
+
+<div class="event">
+<span class="time">13h00</span>
+<span>🍽️ Qualifications — Déjeuner</span>
+</div>
+
+<div class="event">
+<span class="time">15h00</span>
+<span>🎂 Grand Prix — Gâteau d'anniversaire</span>
+</div>
+
+<div class="event">
+<span>🏆 Podium & célébration</span>
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>📸 PHOTO FINISH</h2>
+
+<button onclick="window.open('TON_LIEN_GOOGLE_DRIVE')">
+Partager mes photos
+</button>
+
+</div>
+
+<div class="section">
+
+<h2>🎵 RADIO D'ÉQUIPE</h2>
+
+<button onclick="window.open('TON_LIEN_SPOTIFY')">
+Ouvrir la playlist
+</button>
+
+</div>
+
+<div class="footer">
+Merci d'avoir rejoint la grille de départ.<br><br>
+🏁 Enjoy the Race.
+</div>
+
+</div>
+
+<script>
+
+confetti({
+particleCount:250,
+spread:180,
+origin:{y:0.4}
+});
+
+</script>
+
+</body>
+</html>
