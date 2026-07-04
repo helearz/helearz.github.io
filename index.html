@@ -147,8 +147,8 @@ confetti({particleCount:200, spread:160, origin:{y:0.3}});
 function updateCountdown(){
 
 const now = new Date();
-const target = new Date();
-target.setHours(15,0,0,0);
+const target = new Date(2026, 6, 5, 15, 0, 0);
+// Année, mois (0 = janvier, donc 6 = juillet), jour, heure, minute, seconde
 
 if(now > target){
 document.getElementById("countdown").innerHTML = "🎂 C'EST L'HEURE DU GRAND PRIX !";
