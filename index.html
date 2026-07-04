@@ -27,7 +27,7 @@ color:white;
 text-align:center;
 }
 
-/* 🔳 DRAPEAU (DERRIÈRE) */
+/* 🔳 DRAPEAU (DEVANT) */
 .flag{
 position:fixed;
 top:0;
@@ -141,46 +141,51 @@ letter-spacing:2px;
 
 <script>
 
-confetti({particleCount:200, spread:160, origin:{y:0.3}});
+confetti({
+  particleCount: 200,
+  spread: 160,
+  origin: { y: 0.3 }
+});
 
-/* ⏳ VRAI COMPTE À REBOURS */
-function updateCountdown(){
+/* ⏳ COMPTE À REBOURS */
+function updateCountdown() {
 
-const now = new Date();
-const target = new Date(2026, 6, 5, 15, 0, 0);
-// Année, mois (0 = janvier, donc 6 = juillet), jour, heure, minute, seconde
+  const now = new Date();
 
-if(now > target){
-document.getElementById("countdown").innerHTML = "🎂 C'EST L'HEURE DU GRAND PRIX !";
-return;
+  // 🎂 5 juillet 2026 à 15h00 (heure de France)
+  const target = new Date("2026-07-05T15:00:00+02:00");
+
+  if (now >= target) {
+    document.getElementById("countdown").innerHTML =
+      "🏁 C'EST L'HEURE DU GRAND PRIX !";
+    return;
+  }
+
+  const diff = target - now;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("countdown").innerHTML =
+    `${days}j ${hours}h ${minutes}m ${seconds}s`;
 }
 
-let diff = target - now;
-
-let days = Math.floor(diff / (1000*60*60*24));
-let hours = Math.floor((diff / (1000*60*60)) % 24);
-let minutes = Math.floor((diff / (1000*60)) % 60);
-let seconds = Math.floor((diff / 1000) % 60);
-
-document.getElementById("countdown").innerHTML =
-`${days}j ${hours}h ${minutes}m ${seconds}s`;
-
-}
-
-setInterval(updateCountdown,1000);
 updateCountdown();
+setInterval(updateCountdown, 1000);
 
-/* 🔊 SON MOTEUR (AUTO + CLICK fallback) */
+/* 🔊 SON MOTEUR */
 window.addEventListener("click", () => {
-const audio = document.getElementById("engine");
-audio.volume = 0.6;
-audio.play().catch(()=>{});
+  const audio = document.getElementById("engine");
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
 });
 
 window.addEventListener("load", () => {
-const audio = document.getElementById("engine");
-audio.volume = 0.6;
-audio.play().catch(()=>{});
+  const audio = document.getElementById("engine");
+  audio.volume = 0.6;
+  audio.play().catch(() => {});
 });
 
 </script>
