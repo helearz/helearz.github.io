@@ -27,7 +27,7 @@ color:white;
 text-align:center;
 }
 
-/* 🔳 DRAPEAU (DEVANT) */
+/* 🔳 DRAPEAU */
 .flag{
 position:fixed;
 top:0;
@@ -45,7 +45,7 @@ opacity:0.25;
 z-index:0;
 }
 
-/* TITRE AU-DESSUS */
+/* TITRE */
 header{
 position:relative;
 z-index:2;
@@ -67,14 +67,15 @@ border-radius:20px;
 backdrop-filter:blur(10px);
 }
 
-/* VOITURE (CORRIGÉE) */
+/* 🏎️ VOITURE DEVANT TOUT */
 .car{
 position:absolute;
 top:45%;
 left:-200px;
 font-size:60px;
 animation:drive 4s linear infinite;
-z-index:1;
+z-index:9999;
+pointer-events:none;
 }
 
 @keyframes drive{
@@ -106,9 +107,9 @@ letter-spacing:2px;
 
 <body>
 
-<!-- SON MOTEUR -->
-<audio id="engine" autoplay>
-<source src="https://www.soundjay.com/misc/sounds/race-start-1.mp3" type="audio/mp3">
+<!-- 🔊 SON MOTEUR (meilleur + fiable) -->
+<audio id="engine" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8b7f1c2d1.mp3?filename=racing-car-accelerating-14499.mp3" type="audio/mp3">
 </audio>
 
 <div class="flag"></div>
@@ -152,7 +153,6 @@ function updateCountdown() {
 
   const now = new Date();
 
-  // 🎂 5 juillet 2026 à 15h00 (heure de France)
   const target = new Date("2026-07-05T15:00:00+02:00");
 
   if (now >= target) {
@@ -175,16 +175,10 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-/* 🔊 SON MOTEUR */
+/* 🔊 SON (OBLIGATOIRE CLICK sur GitHub Pages) */
 window.addEventListener("click", () => {
   const audio = document.getElementById("engine");
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
-});
-
-window.addEventListener("load", () => {
-  const audio = document.getElementById("engine");
-  audio.volume = 0.6;
+  audio.volume = 0.7;
   audio.play().catch(() => {});
 });
 
